@@ -1,0 +1,21 @@
+package def.jqueryui.jqueryui;
+@jsweet.lang.Interface
+public abstract class TooltipOptions extends TooltipEvents {
+    @jsweet.lang.Optional
+    public Object content;
+    @jsweet.lang.Optional
+    public Boolean disabled;
+    @jsweet.lang.Optional
+    public Object hide;
+    @jsweet.lang.Optional
+    public String items;
+    @jsweet.lang.Optional
+    public Object position;
+    @jsweet.lang.Optional
+    public Object show;
+    @jsweet.lang.Optional
+    public String tooltipClass;
+    @jsweet.lang.Optional
+    public Boolean track;
+}
+
