@@ -755,38 +755,38 @@ public abstract class JQuery extends def.jquery.JQuery {
     /** This is an automatically generated object type (see the source definition). */
     @jsweet.lang.ObjectType
     public static class Menu extends def.js.Object {
-        native public JQuery apply();
-        native public void apply(def.jqueryui.StringTypes.blur methodName);
-        native public void apply(def.jqueryui.StringTypes.collapse methodName, JQueryEventObject event);
-        native public void apply(def.jqueryui.StringTypes.collapseAll methodName, JQueryEventObject event, Boolean all);
-        native public void apply(def.jqueryui.StringTypes.destroy methodName);
-        native public void apply(def.jqueryui.StringTypes.disable methodName);
-        native public void apply(def.jqueryui.StringTypes.enable methodName);
-        native public void apply(String methodName, JQueryEventObject event, JQuery item);
-        native public void apply(def.jqueryui.StringTypes.focus methodName, JQueryEventObject event, JQuery item);
-        native public Boolean apply(def.jqueryui.StringTypes.isFirstItem methodName);
-        native public Boolean apply(def.jqueryui.StringTypes.isLastItem methodName);
-        native public void apply(def.jqueryui.StringTypes.next methodName, JQueryEventObject event);
-        native public void apply(def.jqueryui.StringTypes.nextPage methodName, JQueryEventObject event);
-        native public void apply(def.jqueryui.StringTypes.previous methodName, JQueryEventObject event);
-        native public void apply(def.jqueryui.StringTypes.previousPage methodName, JQueryEventObject event);
-        native public void apply(def.jqueryui.StringTypes.refresh methodName);
-        native public void apply(def.jqueryui.StringTypes.select methodName, JQueryEventObject event);
-        native public JQuery apply(def.jqueryui.StringTypes.widget methodName);
-        native public JQuery apply(String methodName);
-        native public JQuery apply(def.jqueryui.jqueryui.MenuOptions options);
-        native public Object apply(String optionLiteral, String optionName);
-        native public Object apply(String optionLiteral, def.jqueryui.jqueryui.MenuOptions options);
-        native public JQuery apply(String optionLiteral, String optionName, Object optionValue);
+        native public JQuery $apply();
+        native public void $apply(def.jqueryui.StringTypes.blur methodName);
+        native public void $apply(def.jqueryui.StringTypes.collapse methodName, JQueryEventObject event);
+        native public void $apply(def.jqueryui.StringTypes.collapseAll methodName, JQueryEventObject event, Boolean all);
+        native public void $apply(def.jqueryui.StringTypes.destroy methodName);
+        native public void $apply(def.jqueryui.StringTypes.disable methodName);
+        native public void $apply(def.jqueryui.StringTypes.enable methodName);
+        native public void $apply(String methodName, JQueryEventObject event, JQuery item);
+        native public void $apply(def.jqueryui.StringTypes.focus methodName, JQueryEventObject event, JQuery item);
+        native public Boolean $apply(def.jqueryui.StringTypes.isFirstItem methodName);
+        native public Boolean $apply(def.jqueryui.StringTypes.isLastItem methodName);
+        native public void $apply(def.jqueryui.StringTypes.next methodName, JQueryEventObject event);
+        native public void $apply(def.jqueryui.StringTypes.nextPage methodName, JQueryEventObject event);
+        native public void $apply(def.jqueryui.StringTypes.previous methodName, JQueryEventObject event);
+        native public void $apply(def.jqueryui.StringTypes.previousPage methodName, JQueryEventObject event);
+        native public void $apply(def.jqueryui.StringTypes.refresh methodName);
+        native public void $apply(def.jqueryui.StringTypes.select methodName, JQueryEventObject event);
+        native public JQuery $apply(def.jqueryui.StringTypes.widget methodName);
+        native public JQuery $apply(String methodName);
+        native public JQuery $apply(def.jqueryui.jqueryui.MenuOptions options);
+        native public Object $apply(String optionLiteral, String optionName);
+        native public Object $apply(String optionLiteral, def.jqueryui.jqueryui.MenuOptions options);
+        native public JQuery $apply(String optionLiteral, String optionName, Object optionValue);
         public Boolean active;
-        native public void apply(def.jqueryui.StringTypes.collapse methodName);
-        native public void apply(def.jqueryui.StringTypes.collapseAll methodName, JQueryEventObject event);
-        native public void apply(def.jqueryui.StringTypes.collapseAll methodName);
-        native public void apply(def.jqueryui.StringTypes.next methodName);
-        native public void apply(def.jqueryui.StringTypes.nextPage methodName);
-        native public void apply(def.jqueryui.StringTypes.previous methodName);
-        native public void apply(def.jqueryui.StringTypes.previousPage methodName);
-        native public void apply(def.jqueryui.StringTypes.select methodName);
+        native public void $apply(def.jqueryui.StringTypes.collapse methodName);
+        native public void $apply(def.jqueryui.StringTypes.collapseAll methodName, JQueryEventObject event);
+        native public void $apply(def.jqueryui.StringTypes.collapseAll methodName);
+        native public void $apply(def.jqueryui.StringTypes.next methodName);
+        native public void $apply(def.jqueryui.StringTypes.nextPage methodName);
+        native public void $apply(def.jqueryui.StringTypes.previous methodName);
+        native public void $apply(def.jqueryui.StringTypes.previousPage methodName);
+        native public void $apply(def.jqueryui.StringTypes.select methodName);
     }
     /** This is an automatically generated object type (see the source definition). */
     @jsweet.lang.ObjectType
