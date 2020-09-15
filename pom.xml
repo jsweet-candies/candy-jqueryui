@@ -1,13 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.jsweet.candies</groupId>
+	<groupId>org.jsweet.v3.candies</groupId>
 	<artifactId>jqueryui</artifactId>
-	<version>1.11.0-20170726</version>
+	<version>1.11.0-20200915</version>
 	<properties>
-		<jsweet.transpiler.version>2.0.0</jsweet.transpiler.version>
+		<jsweet.transpiler.version>3.0.0-SNAPSHOT</jsweet.transpiler.version>
+		<jsweet.core.version>6.0.0</jsweet.core.version>
+
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version.release>11</java.version.release>
+		<java.version>1.${java.version.release}</java.version>
 	</properties>
-		<repositories>
+	<repositories>
 		<repository>
 			<id>jsweet-central</id>
 			<name>libs-release</name>
@@ -35,14 +43,14 @@
 	</pluginRepositories>
 	<dependencies>
 		<dependency>
-			<groupId>org.jsweet</groupId>
+			<groupId>org.jsweet.v3</groupId>
 			<artifactId>jsweet-core</artifactId>
-			<version>5-20170726</version>
+			<version>${jsweet.core.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jsweet.candies</groupId>
+			<groupId>org.jsweet.v3.candies</groupId>
 			<artifactId>jquery</artifactId>
-			<version>1.10.0-20170726</version>
+			<version>1.10.0-20200915</version>
 		</dependency>
 
 	</dependencies>
@@ -57,23 +65,29 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
+				<version>3.8.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<fork>true</fork>
+					<release>${java.version.release}</release>
+					<compilerVersion>${java.version}</compilerVersion>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<compilerArgs>
+
+					</compilerArgs>
 				</configuration>
 			</plugin>
-			
+
+
 			<plugin>
-				<groupId>org.jsweet</groupId>
+				<groupId>org.jsweet.v3</groupId>
 				<artifactId>jsweet-maven-plugin</artifactId>
-				<version>2.0.0-rc1</version>
+				<version>${jsweet.transpiler.version}</version>
 				<configuration>
 					<verbose>true</verbose>
 					<bundle>true</bundle>
 					<tsOut>src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}</tsOut>
-					<targetVersion>ES5</targetVersion>
+					<targetVersion>ES6</targetVersion>
 					<excludes>
 						<exclude>**jsweet/util/function/**</exclude>
 					</excludes>
@@ -86,9 +100,16 @@
 							<goal>jsweet</goal>
 						</goals>
 					</execution>
+					<execution>
+						<id>clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<version>1.8</version>
@@ -98,9 +119,9 @@
 						<configuration>
 							<target>
 								<echo message="copying generated bundles to dist..." />
-								
+
 								<mkdir dir="dist/"></mkdir>
-								
+
 								<copy
 									file="src/main/resources/src/typings/${project.artifactId}/${project.version}/bundle.d.ts"
 									tofile="dist/${project.artifactId}.d.ts" verbose="true"
@@ -117,6 +138,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>3.1.0</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -132,22 +154,23 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.3</version>
+				<version>3.1.1</version>
 				<configuration>
 					<javadocVersion>1.8</javadocVersion>
+					<encoding>${project.build.sourceEncoding}</encoding>
 					<sourcepath>src/main/java</sourcepath>
 					<skip>${skipJavadoc}</skip>
-					<encoding>UTF-8</encoding>
 					<fixTags>all</fixTags>
 					<failOnError>false</failOnError>
-                    <!-- leave these options unchanged to place the Javadoc at the right place for jsweet.org -->
-                    <reportOutputDirectory>/var/www/apidocs/releases/org/jsweet/candies</reportOutputDirectory>
-                    <destDir>${project.artifactId}/${project.version}</destDir>
-                    <!-- end of jsweet.org configuration -->
+					<!-- leave these options unchanged to place the Javadoc at the right 
+						place for jsweet.org -->
+					<reportOutputDirectory>/var/www/apidocs/releases/org/jsweet/candies</reportOutputDirectory>
+					<destDir>${project.artifactId}/${project.version}</destDir>
+					<!-- end of jsweet.org configuration -->
 					<header><![CDATA[<a href="http://www.jsweet.org" target="_blank" style="text-transform: lowercase">http://www.jsweet.org<a>]]></header>
 					<bottom><![CDATA[<center>Copyright 2015, <a href="http://www.cincheo.org" target="_blank">Cinch??o SAS<a> - Web site: <a href="http://www.jsweet.org" target="_blank">http://www.jsweet.org<a><center>]]></bottom>
 					<stylesheetfile>/var/www/apidocs/stylesheet.css</stylesheetfile>
@@ -161,8 +184,29 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/resources/META-INF/resources/webjars</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+						<fileset>
+							<directory>src/main/resources/META-INF/resources/typings</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
 		</plugins>
-		
+
 		<pluginManagement>
 			<plugins>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
@@ -177,7 +221,7 @@
 								<pluginExecution>
 									<pluginExecutionFilter>
 										<groupId>
-											org.jsweet
+											org.jsweet.v3
 										</groupId>
 										<artifactId>
 											jsweet-maven-plugin
